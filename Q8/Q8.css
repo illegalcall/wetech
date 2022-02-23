@@ -1,0 +1,12 @@
+select {
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+p {
+	font-style: italic;
+}
+
+#description {
+	margin: 10px;
+}

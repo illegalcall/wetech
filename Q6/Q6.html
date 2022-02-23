@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>payment gatewahy</title>
+    <script src="Q6.js"></script>
+    <link rel="stylesheet" href="Q6.css" />
+  </head>
+
+  <body>
+    <form id="payment_form">
+      <input
+        type="radio"
+        name="payment"
+        value="pay now"
+        id="pay_now"
+        onclick="pay_now_option()"
+      />
+      <label for="pay_now"> Pay Now </label>
+      <br />
+
+      <input
+        type="radio"
+        name="payment"
+        value="pay later"
+        id="pay_later"
+        onclick="pay_later_option()"
+      />
+      <label for="pay_later"> Pay Later </label>
+      <br />
+    </form>
+  </body>
+</html>

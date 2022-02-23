@@ -1,0 +1,29 @@
+<html>
+	<head>
+	<title>Home Page</title>
+	</head>
+	<body> 
+		<h1>Home Page</h1>
+		<script>
+			inactivityTimer=0;
+			function updateTimer()
+			{
+				inactivityTimer=0;
+			}
+			function incTimer()
+			{
+				inactivityTimer++;
+				if(inactivityTimer>=10)
+				{
+					alert("You were idle for too long!");
+					window.location.href="../logout.html";
+				}
+			}
+			window.onmousemove=updateTimer;
+			window.onclick=updateTimer;
+
+			setInterval(incTimer,1000);
+
+		</script>
+	</body>
+</html>
