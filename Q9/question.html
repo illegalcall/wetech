@@ -1,0 +1,52 @@
+<html>
+
+<body id="body"></body>
+<script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
+        }
+    };
+    xmlhttp.open("GET", "q9.xml", true);
+    xmlhttp.send();
+
+    function myFunction(xml) {
+        var i;
+        var xmlDoc = xml.responseXML;
+        var content = "";
+        var x = xmlDoc.getElementsByTagName("question");
+        for (i = 0; i < x.length; i++) {
+            content +=
+                "<h3>Question No. " +
+                x[i].getAttribute("no") +
+                "</h3>" +
+                "<h4>" +
+                x[i].getElementsByTagName("text")[0].innerHTML +
+                "</h4>" +
+                "<ul>" +
+                "<li>" +
+                x[i].getElementsByTagName("optionA")[0].innerHTML +
+                "</li>" +
+                "<li>" +
+                x[i].getElementsByTagName("optionB")[0].innerHTML +
+                "</li>" +
+                "<li>" +
+                x[i].getElementsByTagName("optionC")[0].innerHTML +
+                "</li>" +
+                "<li>" +
+                x[i].getElementsByTagName("optionD")[0].innerHTML +
+                "</li>" +
+                "</ul>" +
+                "<h4>Answer</h4>" +
+                "<p>" +
+                x[i].getElementsByTagName("answer")[0].getAttribute("value") +
+                "-" +
+                x[i].getElementsByTagName("answer")[0].innerHTML +
+                "</p>";
+        }
+        document.getElementById("body").innerHTML = content;
+    }
+</script>
+
+</html>

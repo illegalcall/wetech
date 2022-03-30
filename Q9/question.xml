@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE question-paper SYSTEM "q9.dtd">
+<question-paper>
+    <question no="1">
+        <text>Your roll number?</text>
+        <optionA>085</optionA>
+        <optionB>086</optionB>
+        <optionC>087</optionC>
+        <optionD>088</optionD>
+        <answer value="optionB">086</answer>
+    </question>
+</question-paper>

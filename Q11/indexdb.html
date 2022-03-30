@@ -1,0 +1,48 @@
+<html>
+<style>
+    button {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <button>Add Data</button>
+    <button>Show Data</button>
+</body>
+<script type="text/javascript">
+    if (!window.indexedDB) {
+        console.log(
+            "Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available."
+        );
+    }
+    var db;
+    var request = indexedDB.open("sayakDb");
+    request.onupgradeneeded = function() {
+        const db = request.result;
+        const store = db.createObjectStore("products", {
+            keyPath: ["name", "manufacturer"],
+        });
+        const priceIndex = store.createIndex("by_price", "price");
+        store.put({
+            name: "Monitor",
+            manufacturer: "Lenovo",
+            price: 23000,
+        });
+        store.put({
+            name: "Keyboard",
+            manufacturer: "Redgear",
+            price: 2000,
+        });
+        store.put({
+            name: "Mouse",
+            manufacturer: "Redgear",
+            price: 1000,
+        });
+    };
+
+    request.onsuccess = function() {
+        db = request.result;
+    };
+</script>
+
+</html>
